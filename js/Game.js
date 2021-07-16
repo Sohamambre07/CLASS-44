@@ -44,12 +44,29 @@ if(countRef.exists()){
         text ("game start", 200, 200)
 
         player.getInfoPlayer()
+        player.getRank()
         console.log(allPlayers);
+
+
+        if(player.distance>4000){
+            gameState =2
+            //game.update(2)
+            player.rank++
+            player.updateRank()
+            myRank= player.rank
+          }
 
         if(keyIsDown(UP_ARROW)){
             player.distance += 50;
             player.update()
         }
+
+        if(keyIsDown(DOWN_ARROW)){
+            player.distance -= 50;
+            player.update()
+        }
+
+        
 
         var index=0
         var x= 350
@@ -82,6 +99,6 @@ if(countRef.exists()){
     }
 
     end(){
-        alert ("you won")
+        alert ("you won"+ +"myrank :"+ myRank)
     }
 }
